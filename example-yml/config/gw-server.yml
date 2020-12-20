@@ -1,0 +1,14 @@
+ec-config:
+  conf:
+    mod: gw:server
+    gpt: "18990"
+    zon: e2sdfdsf4-28be-4851-9d6a-b7033d568270
+    grp: 012020-int
+    sst: https://e2sdfsfgfr4834-28be-4851-9d6a-b7033d568270.run.aws-usw02-dev.ice.predix.io
+    dbg: true
+    tkn: <token>
+    aid: <aid>
+    rpt: "18998"
+    rht: localhost
+    plg: true
+    hst: http://localhost:17990

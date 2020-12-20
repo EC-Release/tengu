@@ -1,0 +1,16 @@
+ec-config:
+  conf:
+    mod: client
+    aid: resX8t
+    tid: ZexNVz
+    hst: ws://localhost:18990/agent
+    cid: cid
+    csc: csc
+    oa2: https://aebdf553-13242-4c14-9d7a-85891e1ff2db.predix-uaa.run.aws-usw02-dev.ice.predix.io/oauth/token
+    dur: 300
+    dbg: true
+    zon: e27fc834-28be-4851-9d6a-b70werwerwe
+    grp: 012022-int
+    cps: 5
+    fup: agent_solaris_sparc64_sys:ayasuda_copy_example_2
+    fdw: ayasuda_copy_example_2:anotherfile_example

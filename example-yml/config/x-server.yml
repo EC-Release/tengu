@@ -1,0 +1,40 @@
+ec-config:
+  conf:
+    mod: x:server
+    grp: x-pilot
+    hst: ws://localhost:47990/agent
+    dbg: true
+    cid: 0dd8ab7b-9b78-4283-ad21-586636fhello
+    oa2: https://localhost:17991
+    cps: 5
+    #limited the resource access to the following remote hosts.
+    rht: localhost:5432,localhost:8080
+  watcher:
+    env: LOCAL
+    license: SERVER_X5 #cert
+    role: DEVELOPER #cert
+    devId: 0dd8ab7b-9b78-4283-ad21-586636f7bad1
+    scope: app.auth #cert
+    certsDir: "/etc/ssl/certs"
+    mode: x:server #cert. available option: gateway,server,client,gw:server,gw:client
+    os: darwin
+    arch: amd64
+    instance: 3
+    duration: 1
+    cpuPeriod: 100000 #microsec. e.g. 50000/100000 = .5 cpu
+    cpuQuota: 50000
+    in-memory: 134217728 #in bytes. ~128mb
+    swap-memory: 67108864
+    oauth2: http://localhost:17993
+    Http_Port: ":17991"
+    Tcp_Port: ":17990"
+    Custom_Port: ":17992"
+    contRev: v1beta.fukuoka.1725
+    watrRev: v1.1beta.fukuoka.2727
+    contArtURL: https://raw.githubusercontent.com/Enterprise-connect/sdk/{{contRev}}/dist/ecagent_arm_sys.tar.gz
+    watrArtURL: https://raw.githubusercontent.com/Enterprise-connect/sdk/{{watrRev}}/dist/agent/ecagent_arm_sys.tar.gz 
+  plugins:
+  - name: vln
+    url: https://raw.githubusercontent.com/Enterprise-connect/sdk/{{revision}}/plugins/{{name}}/vln_darwin_sys
+  - name: tls
+    url: https://raw.githubusercontent.com/Enterprise-connect/sdk/{{revision}}/plugins/{{name}}/tls_darwin_sys

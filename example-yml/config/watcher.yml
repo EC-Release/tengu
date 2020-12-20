@@ -1,0 +1,45 @@
+ec-config:
+  conf:
+    mod: client
+    aid: <aid>
+    tid: <tid>
+    hst: ws://localhost:18990/agent
+    cid: <cid>
+    csc: <csc>
+    oa2: https://someid-6d3e-4c14-9d7a-85891e1ff2db.predix-uaa.run.aws-usw02-dev.ice.predix.io/oauth/token
+    dur: 300
+    dbg: true
+    zon: 5f589e6f-some-uuid6c5-926e-da47ed34c8be
+    grp: gtest
+    cps: 5
+    hca: ":17991"
+    lpt: ":17990"
+  watcher:
+    env: LOCAL
+    license: SERVER_X5 #cert
+    role: DEVELOPER #cert
+    devId: test-deve8-8693-4aef-a34a-c97b81e1c163
+    scope: app.auth #cert
+    mode: client #cert. available option: gateway,server,client,gw:server,gw:client
+    os: darwin
+    arch: amd64
+    instance: 3
+    duration: 1
+    cpuPeriod: 100000 #microsec. e.g. 50000/100000 = .5 cpu
+    cpuQuota: 50000
+    cpuShared: 128 #cpu proportional sharing per contr.
+    inMemory: 65536000 #in bytes. ~64mb
+    swapMemory: 65536000
+    oauth2: http://localhost:47992
+    Http_Port: ":17991"
+    Tcp_Port: ":17990"
+    Custom_Port: ":17992"
+    contRev: v1beta.fukuoka.1725
+    watrRev: v1.1beta.fukuoka.2727
+    contArtURL: https://raw.githubusercontent.com/Enterprise-connect/sdk/{{contRev}}/dist/ecagent_arm_sys.tar.gz
+    watrArtURL: https://raw.githubusercontent.com/Enterprise-connect/sdk/{{watrRev}}/dist/agent/ecagent_arm_sys.tar.gz
+  plugins:
+  - name: vln
+    url: https://raw.githubusercontent.com/Enterprise-connect/sdk/{{revision}}/plugins/{{name}}/vln_darwin_sys
+  - name: tls
+    url: https://raw.githubusercontent.com/Enterprise-connect/sdk/{{revision}}/plugins/{{name}}/tls_darwin_sys

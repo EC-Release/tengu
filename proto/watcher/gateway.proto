@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package main;
+
+message GatewayInfo {
+  string gtw_id = 1;
+  string ref_id = 3;
+  int64 time_created = 4;
+  bool active = 5;
+  string routing_url = 6;
+  string zone = 2;
+}
+
+message BadGatewayList {
+  repeated string list = 1;
+}
+
+message GoodGatewayList {
+  repeated GatewayInfo list = 1;
+}
+
+service Gateway {
+  rpc GetList (BadGatewayList) returns (GoodGatewayList) {}
+}
