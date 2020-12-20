@@ -1,0 +1,24 @@
+image: docker:19.03.1
+
+services:
+  - docker:19.03.1-dind
+
+variables:
+  AGT_LIB: v1.2beta.reiwa.2.lib
+  AGT_BUILD_IMG: enterpriseconnect/build:v1.2beta
+  LIB_PKG: github.com/wzlib
+
+before_script:
+  - wget https://github.com/Enterprise-connect/sdk/archive/${AGT_LIB}.tar.gz
+  - mkdir ${AGT_LIB} && tar -xzvf ${AGT_LIB}.tar.gz --strip 1 -C ${AGT_LIB}
+  - rm -Rf pkg && mv ${AGT_LIB}/lib/go/pkg pkg
+  - ls -al && echo ${CI_PROJECT_DIR} && ls -al pkg
+    
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - ls -al pkg/linux_amd64
+    - docker run --network host -e LIBPKG=${LIB_PKG} -v $(pwd):/build -v $(pwd)/watcher:/go/src/github.com/Enterprise-Connect/agent/watcher ${AGT_BUILD_IMG}

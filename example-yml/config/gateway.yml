@@ -1,0 +1,11 @@
+ec-config:
+  conf:
+    mod: gateway
+    gpt: "7990"
+    zon: d985acd4-806a-4679-9441-cd6ebc211c22
+    grp: aws-gateway
+    sst: https://d985acd4-806a-4679-9441-cd6ebc211c22.run.aws-usw02-dev.ice.predix.io
+    dbg: true
+    tkn: <tkn>
+    hst: https://ec-gateway.power.ge.com
+    cps: 5

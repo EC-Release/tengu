@@ -1,0 +1,49 @@
+ec-config:
+  conf:
+    mod: x:gateway
+    gpt: "47990"
+    dbg: true
+    hst: http://yasuda-pc:47990
+    cps: 5
+    cid: 0dd8ab7b-9b78-4283-ad21-586636fhello
+    oa2: http://yasuda-pc:17991
+    tls: false
+  # group to permit the access of connectivity
+  subGroup:  
+  - name: x-pilot
+    ids: 0dd8ab7b-9b78-4283-ad21-586636fhello
+  - name: x-postgres
+    ids: 0dd8ab7b-9b78-4283-ad21-586636fhello, <some-other-uuid1>
+  watcher:
+    env: LOCAL
+    license: SERVER_X5 #cert
+    role: DEVELOPER #cert
+    devId: 0dd8ab7b-9b78-4283-ad21-586636f7bad1
+    scope: app.auth #cert
+    certsDir: "/etc/ssl/certs"
+    mode: x:gateway #cert. available option: gateway,server,client,gw:server,gw:client
+    os: darwin
+    arch: amd64
+    instance: 3
+    duration: 1
+    cpuPeriod: 100000 #microsec. e.g. 50000/100000 = .5 cpu
+    cpuQuota: 50000
+    in-memory: 134217728 #in bytes. ~128mb
+    swap-memory: 67108864
+    oauth2: http://localhost:47992
+    Http_Port: ":17991"
+    Tcp_Port: ":17990"
+    Custom_Port: ":17992"
+    contRev: v1beta.fukuoka.1725
+    watrRev: v1.1beta.fukuoka.2727
+    contArtURL: https://raw.githubusercontent.com/Enterprise-connect/sdk/{{contRev}}/dist/ecagent_arm_sys.tar.gz
+    watrArtURL: https://raw.githubusercontent.com/Enterprise-connect/sdk/{{watrRev}}/dist/agent/ecagent_arm_sys.tar.gz
+  plugins:
+  - name: vln
+    url: https://raw.githubusercontent.com/Enterprise-connect/sdk/{{revision}}/plugins/{{name}}/vln_darwin_sys
+  - name: tls
+    url: https://raw.githubusercontent.com/Enterprise-connect/sdk/{{revision}}/plugins/{{name}}/tls_darwin_sys
+  #cred in oauth2, api, and x:gateway modes avaialble ONLY for TLS purpose.
+  cred:
+    privateKey: <private-key>
+    publicCrt: <public-cert>

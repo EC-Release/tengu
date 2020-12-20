@@ -1,0 +1,13 @@
+ec-config:
+  conf:
+    mod: gw:client
+    lpt: "7990"
+    zon: esdfs834-28be-4851-9d6a-b7033d568270
+    grp: 012229-int
+    sst: https://e27fsdf834-28be-4851-9d6a-b7033d568270.run.aws-usw02-dev.ice.predix.io
+    dbg: true
+    tkn: <token>
+    aid: <aid>
+    tid: <tid>
+    hst: http://localhost:18990
+    gpt: "18990"
